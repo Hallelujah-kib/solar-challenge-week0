@@ -51,7 +51,6 @@ This repository contains the setup and analysis for Week 0 of the 10 Academy Dat
 │   ├── __init__.py
 
 └── scripts/
-
     ├── __init__.py
 
     └── README.md
