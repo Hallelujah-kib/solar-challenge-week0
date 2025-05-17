@@ -22,13 +22,39 @@ This repository contains the setup and analysis for Week 0 of the 10 Academy Dat
     pip list
 
 ## Folder Structure
-- .github/workflows/: GitHub Actions CI pipeline
-- src/: Source code (to be populated)
-- notebooks/: Jupyter notebooks for EDA
-- tests/: Unit tests (to be populated)
-- scripts/: Automation scripts
-- data/: Datasets (ignored via .gitignore)
-- .vscode/: VS Code settings
+├── .vscode/
+
+│   └── settings.json
+
+├── .github/
+
+│   └── workflows
+
+│       ├── unittests.yml
+
+├── .gitignore
+
+├── requirements.txt
+
+├── README.md
+
+ |------ src/
+
+├── notebooks/
+
+│   ├── __init__.py
+
+│   └── README.md
+
+├── tests/
+
+│   ├── __init__.py
+
+└── scripts/
+
+    ├── __init__.py
+
+    └── README.md
 
 ## CI/CD
 A GitHub Actions workflow (.github/workflows/unittests.yml) runs on push/PR, installing dependencies and verifying Python version.
