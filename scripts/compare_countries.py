@@ -66,6 +66,7 @@ def create_boxplots(dataframes, metrics=['GHI', 'DNI', 'DHI'], output_dir='plots
         plt.ylabel(f'{metric} (W/m²)')
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, 'boxplots.png'))
+    plt.show()
     plt.close()
 
 
@@ -101,11 +102,21 @@ def perform_statistical_tests(dataframes, metric='GHI'):
     """
     # Extract metric values for each country
     metric_values = {country: df[metric].dropna() for country, df in dataframes.items()}
+    
 
     # Perform ANOVA
     anova_result = f_oneway(*metric_values.values())
+    anova_stat = round(anova_result.statistic, 3)
+    anova_pvalue = round(anova_result.pvalue, 3)
+
     # Perform Kruskal-Wallis
     kruskal_result = kruskal(*metric_values.values())
+    kruskal_stat = round(kruskal_result.statistic, 3)
+    kruskal_pvalue = round(kruskal_result.pvalue, 3)
+
+    # Print results formatted to 3 decimal places
+    print(f"ANOVA Test: Statistic = {anova_stat:.3f}, p-value = {anova_pvalue:.3f}")
+    print(f"Kruskal-Wallis Test: Statistic = {kruskal_stat:.3f}, p-value = {kruskal_pvalue:.3f}")
 
     return {
         'ANOVA_pvalue': anova_result.pvalue,
