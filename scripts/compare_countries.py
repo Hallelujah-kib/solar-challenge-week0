@@ -138,6 +138,7 @@ def create_bar_chart(dataframes, metric='GHI', output_dir='plots'):
     for i, v in enumerate(means.values()):
         plt.text(i, v + 5, f'{v:.1f}', ha='center')
     plt.savefig(os.path.join(output_dir, f'{metric}_bar_chart.png'))
+    plt.show()
     plt.close()
 
 
