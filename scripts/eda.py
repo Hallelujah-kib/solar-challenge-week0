@@ -165,7 +165,7 @@ def calculate_z_scores(df: pd.DataFrame, key_columns: List[str]) -> None:
     """
     z_scores = stats.zscore(df[key_columns].fillna(df[key_columns].median()))
     outliers = (abs(z_scores) > 3).any(axis=1)
-    print(f"\nZ-scores of Key Columns:\n{z_scores}")
+    
     print(f"\nOutliers (|Z|>3): {outliers.sum()} rows")
 
 
